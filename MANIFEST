@@ -30,4 +30,6 @@ meta/makefile.ttl
 README
 t/01basic.t
 t/02as.t
+t/03nc.t
+t/Example89.pm
 SIGNATURE                                Public-key signature (added by MakeMaker)

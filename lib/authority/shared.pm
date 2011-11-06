@@ -6,52 +6,51 @@ use UNIVERSAL::AUTHORITY 0.002 qw();
 
 BEGIN {
 	$authority::shared::AUTHORITY = 'cpan:TOBYINK';
-	$authority::shared::VERSION   = '0.001';
+	$authority::shared::VERSION   = '0.002';
 }
 
 use Carp qw(croak);
 use Scalar::Util qw(blessed);
+use Sub::Name qw(subname); # protects against namespace::autoclean.
 
 sub import
 {
 	shift if $_[0] eq __PACKAGE__;
 	my ($caller) = caller;
 	
-	my $sub = sub
-	{
-		my ($invocant, $test) = @_;
-		$invocant = ref $invocant if blessed($invocant);
-		
-		my @authorities = do {
-			no strict 'refs';
-			my @a = @{"$invocant\::AUTHORITIES"};
-			unshift @a, ${"$invocant\::AUTHORITY"};
-			@a;
-			};
-		
-		if (scalar @_ > 1)
-		{
-			my $pass = undef;
-			AUTH: for (@authorities)
-			{
-				next AUTH
-					unless UNIVERSAL::AUTHORITY::reasonably_smart_match($_, $test);
-				$pass = $_;
-				last AUTH;
-			}
-			croak("Invocant ($invocant) has authority '$authorities[0]'")
-				unless defined $pass;
-			return $pass;
-		}
-		
-		return wantarray ? @authorities : $authorities[0];
-	};
+	no strict 'refs';
+	push @{"$caller\::AUTHORITIES"}, @_;
+	*{"$caller\::AUTHORITY"} = subname("$caller\::AUTHORITY", \&AUTHORITY);
+}
+
+sub AUTHORITY
+{
+	my ($invocant, $test) = @_;
+	$invocant = ref $invocant if blessed($invocant);
 	
-	{
+	my @authorities = do {
 		no strict 'refs';
-		push @{"$caller\::AUTHORITIES"}, @_;
-		*{"$caller\::AUTHORITY"}   = $sub;
+		my @a = @{"$invocant\::AUTHORITIES"};
+		unshift @a, ${"$invocant\::AUTHORITY"};
+		@a;
+		};
+	
+	if (scalar @_ > 1)
+	{
+		my $pass = undef;
+		AUTH: for (@authorities)
+		{
+			next AUTH
+				unless UNIVERSAL::AUTHORITY::reasonably_smart_match($_, $test);
+			$pass = $_;
+			last AUTH;
+		}
+		croak("Invocant ($invocant) has authority '$authorities[0]'")
+			unless defined $pass;
+		return $pass;
 	}
+	
+	return wantarray ? @authorities : $authorities[0];
 }
 
 1;

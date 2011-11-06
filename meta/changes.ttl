@@ -15,3 +15,13 @@ dist:v_0-001
 	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/authority-shared-0.001.tar.gz> ;
 	rdfs:label      "Initial release" .
 
+dist:project :release dist:v_0-002 .
+dist:v_0-002
+	a               :Version ;
+	dc:issued       "2011-11-06"^^xsd:date ;
+	:revision       "0.002"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/authority-shared-0.002.tar.gz> ;
+	dcs:changes [
+		dcs:versus dist:v_0-001 ;
+		dcs:item   [ rdfs:label "Offer protection against namespace::clean stripping the AUTHORITY method straight back out of the function."@en ]
+		] .
