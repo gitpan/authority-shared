@@ -1,0 +1,35 @@
+---
+abstract: 'a multi-AUTHORITY method for your classes'
+author:
+  - 'Toby Inkster <tobyink@cpan.org>'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+  Test::Exception: 0
+  Test::More: 0.61
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 1.02'
+keywords: []
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+module_name: authority::shared
+name: authority-shared
+no_index:
+  directory:
+    - examples
+    - inc
+    - t
+    - xt
+requires:
+  Carp: 0
+  Scalar::Util: 0
+  UNIVERSAL::AUTHORITY: 0.002
+  perl: 5.005
+resources:
+  bugtracker: http://rt.cpan.org/Dist/Display.html?Queue=authority-shared
+  homepage: https://metacpan.org/release/authority-shared
+  license: http://dev.perl.org/licenses/
+version: 0.001

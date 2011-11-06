@@ -1,0 +1,69 @@
+NAME
+    authority::shared - a multi-AUTHORITY method for your classes
+
+SYNOPSIS
+     package MyApp;
+     BEGIN { $MyApp::AUTHORITY = 'cpan:JOE'; }
+     use authority::shared qw(cpan:ALICE cpan:BOB);
+ 
+     package main;
+     use feature qw(say);
+     say MyApp->AUTHORITY;  # says "cpan:JOE"
+     MyApp->AUTHORITY('cpan:JOE');    # lives
+     MyApp->AUTHORITY('cpan:ALICE');  # lives
+     MyApp->AUTHORITY('cpan:BOB');    # lives
+     MyApp->AUTHORITY('cpan:CAROL');  # croaks
+
+DESCRIPTION
+    This module allows you to indicate that your module is issued by
+    multiple authorities. The package variable $AUTHORITY should still be
+    used to indicate the primary authority for the package.
+
+    This module does two simple things:
+
+    1. Creates an @AUTHORITIES array in the caller package, populating it
+    with the arguments passed to "authority::shared" on the "use" line.
+    2. Exports an AUTHORITY function to your package that reads the
+    $AUTHORITY and @AUTHORITIES package variables.
+
+    The main use case for shared authorities is for team projects. The team
+    would designate a URI to represent the team as a whole. For example,
+    "http://datetime.perl.org/", "http://moose.iinteractive.com/" or
+    "http://www.perlrdf.org/". Releases can then be officially stamped with
+    the authority of the team using:
+
+     use authority::shared q<http://www.perlrdf.org/>;
+
+    And users can check they have an module released by the official team
+    using:
+
+     RDF::TakeOverTheWorld->AUTHORITY(q<http://www.perlrdf.org/>);
+
+    which will croak if package RDF::TakeOverTheWorld doesn't have the
+    specified authority.
+
+BUGS
+    An obvious limitation is that this module relies on honesty. Don't
+    release modules under authorities you have no authority to use.
+
+    Please report any bugs to
+    <http://rt.cpan.org/Dist/Display.html?Queue=authority-shared>.
+
+SEE ALSO
+    UNIVERSAL::AUTHORITY, authority, <http://feather.perl6.nl/syn/S11.html>,
+    <http://www.perlmonks.org/?node_id=694377>.
+
+AUTHOR
+    Toby Inkster <tobyink@cpan.org>.
+
+COPYRIGHT AND LICENCE
+    This software is copyright (c) 2011 by Toby Inkster.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
+DISCLAIMER OF WARRANTIES
+    THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+    WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+    MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
