@@ -7,7 +7,7 @@
 	:version_from _:main ;
 	:readme_from _:main ;
 	:test_requires "Test::More 0.61" , "Test::Exception" ;
-	:requires "Scalar::Util" , "Carp" , "UNIVERSAL::AUTHORITY 0.002" .
+	:requires "Scalar::Util" , "Carp" , "UNIVERSAL::AUTHORITY 0.002" , "Sub::Name" .
 
 _:main <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#fileName> "lib/authority/shared.pm" .
 

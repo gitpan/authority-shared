@@ -21,7 +21,18 @@ dist:v_0-002
 	dc:issued       "2011-11-06"^^xsd:date ;
 	:revision       "0.002"^^xsd:string ;
 	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/authority-shared-0.002.tar.gz> ;
-	dcs:changes [
+	dcs:changeset [
 		dcs:versus dist:v_0-001 ;
 		dcs:item   [ rdfs:label "Offer protection against namespace::clean stripping the AUTHORITY method straight back out of the function."@en ]
+		] .
+
+dist:project :release dist:v_0-003 .
+dist:v_0-003
+	a               :Version ;
+	dc:issued       "2011-11-08"^^xsd:date ;
+	:revision       "0.003"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/authority-shared-0.003.tar.gz> ;
+	dcs:changeset [
+		dcs:versus dist:v_0-002 ;
+		dcs:item   [ a dcs:Packaging ; rdfs:label "Note dependency on Sub::Name."@en ]
 		] .
