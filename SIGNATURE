@@ -14,12 +14,12 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 e5d92f14b7838881ee6f8a27c02b8c0a7ef7d754 Changes
+SHA1 2d781590f4ee05f7a30ecf8d63f662d20d2d0898 Changes
 SHA1 f3296a09eb07898f3ba6dd0ece615dafc1b57e16 LICENSE
-SHA1 fe69d353cf3d2fef975a1c0124ebb3470de882d5 MANIFEST
-SHA1 b24197d2927ee56078f98c559d53ba9be9c9cae9 META.yml
+SHA1 7b469ed751467d9534a6dc8317b7e735a8c2b0ce MANIFEST
+SHA1 31262eb44443901d1f947d9677786c8234eb89f9 META.yml
 SHA1 7150e5e086ef493e1e527a1eeec44a8344b80db6 Makefile.PL
-SHA1 ac763a8a107dc2c7ec3c435dfbf8c1e375da581d README
+SHA1 e2994a27c1c61200a14d25c0447e58d9fd723a21 README
 SHA1 f91076f59ffa5f47d9864b700285f293bfc86be3 examples/basic.pl
 SHA1 5d94bc10deff1dd74e4bc5dfa6fc015e39271f15 inc/Module/AutoInstall.pm
 SHA1 40106479d4e07f379cb82ca1d69fca92e3a40f47 inc/Module/Install.pm
@@ -36,13 +36,14 @@ SHA1 b86d0385e10881db680d28bde94f275e49e34a27 inc/Module/Install/TrustMetaYml.pm
 SHA1 1326052d1df1065debee74f9d8583a734b9b3d00 inc/Module/Install/Win32.pm
 SHA1 bb607f3715c40fc3bc1c46496587cdb215bc4fa2 inc/Module/Install/WriteAll.pm
 SHA1 26d58a041cd6b3d21db98b32e8fd1841aae21204 inc/Module/Package.pm
-SHA1 4db02ca3854a0d95bf38139e9b714cc85b618189 inc/Module/Package/Dist/RDF.pm
+SHA1 ef4c751e6da2367fbf9d0ef365c27d50d6ed3bf9 inc/Module/Package/Dist/RDF.pm
 SHA1 775bd24f2fdbb6dce51a8b5b0cdb01fccfce83c4 inc/Scalar/Util.pm
 SHA1 b1b664983568bf822c327599eb88e223483ae96a inc/Scalar/Util/PP.pm
 SHA1 eef6bff62046bff2ce08ba132d0b58fba30f40b4 inc/YAML/Tiny.pm
-SHA1 14ddd31c44d415043bc1f108c5a6066ae155a0a7 lib/authority/shared.pm
-SHA1 62cdf7780bfea4dd4f24a3fc2b885d5d0c496067 meta/changes.ttl
-SHA1 fc55ea4995ad61aa5f58c7a2e4541fd001e270c4 meta/doap.ttl
+SHA1 b526160f58a03562738f361878a6e65e3d79796a inc/parent.pm
+SHA1 092a467fe03d35453e6ff9b13914a4bfc8d08954 lib/authority/shared.pm
+SHA1 a73151396f3298ac074fc6fa87f421366f0c434a meta/changes.ttl
+SHA1 c410aecf7b26dff4da76424099fa4d0070018b21 meta/doap.ttl
 SHA1 fcc7c4a7e2397597e86dc1e7b4fed368f6eeafdd meta/makefile.ttl
 SHA1 fb26f12445e39cc2aef6aa620a9ad6e7eefb82f4 t/01basic.t
 SHA1 4d458f9f5a92ab5fdfbd7f0aa360353e3137c331 t/02as.t
@@ -51,7 +52,7 @@ SHA1 161bd5ba10466c9314dc63be6a68d581f70178ac t/Example89.pm
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iEYEARECAAYFAk65plkACgkQzr+BKGoqfTnEBACfaUEDV3CjYtNknsy7VHcRjaps
-8wUAn3VpkdJH3rQRFjVZwvMc2vJ1Vk/V
-=NFtF
+iEYEARECAAYFAk7XeR0ACgkQzr+BKGoqfTn2UACgs96kf2kDd463DC0AtGAoFSJt
+vcsAoJtGlAK5cMeXg3zYoz6TwokDKsa1
+=MAoL
 -----END PGP SIGNATURE-----

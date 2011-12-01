@@ -1,12 +1,12 @@
 package authority::shared;
 
-use 5.005;
+use 5.006;
 use strict;
-use UNIVERSAL::AUTHORITY 0.002 qw();
+use Object::AUTHORITY 0 qw();
 
 BEGIN {
 	$authority::shared::AUTHORITY = 'cpan:TOBYINK';
-	$authority::shared::VERSION   = '0.003';
+	$authority::shared::VERSION   = '0.004';
 }
 
 use Carp qw(croak);
@@ -41,7 +41,7 @@ sub AUTHORITY
 		AUTH: for (@authorities)
 		{
 			next AUTH
-				unless UNIVERSAL::AUTHORITY::reasonably_smart_match($_, $test);
+				unless Object::AUTHORITY::reasonably_smart_match($_, $test);
 			$pass = $_;
 			last AUTH;
 		}
@@ -69,7 +69,7 @@ authority::shared - a multi-AUTHORITY method for your classes
  
  package main;
  use feature qw(say);
- say MyApp->AUTHORITY;  # says "cpan:JOE"
+ say scalar MyApp->AUTHORITY;     # says "cpan:JOE"
  MyApp->AUTHORITY('cpan:JOE');    # lives
  MyApp->AUTHORITY('cpan:ALICE');  # lives
  MyApp->AUTHORITY('cpan:BOB');    # lives
@@ -120,9 +120,21 @@ L<http://rt.cpan.org/Dist/Display.html?Queue=authority-shared>.
 
 =head1 SEE ALSO
 
-L<UNIVERSAL::AUTHORITY>,
-L<authority>,
-L<http://feather.perl6.nl/syn/S11.html>,
+=over
+
+=item * L<Object::AUTHORITY> - an AUTHORITY method for your class
+
+=item * I<authority::shared> (this module) - a more sophisticated AUTHORITY method for your class
+
+=item * L<UNIVERSAL::AUTHORITY> - an AUTHORITY method for every class (deprecated)
+
+=item * L<UNIVERSAL::AUTHORITY::Lexical> - an AUTHORITY method for every class, within a lexical scope
+
+=item * L<authority> - load modules only if they have a particular authority
+
+=back
+
+Background reading: L<http://feather.perl6.nl/syn/S11.html>,
 L<http://www.perlmonks.org/?node_id=694377>.
 
 =head1 AUTHOR

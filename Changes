@@ -5,6 +5,11 @@ Created:      2011-11-06
 Home page:    <https://metacpan.org/release/authority-shared>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=authority-shared>
 
+0.004  2011-12-01
+
+ - Don't use UNIVERSAL::AUTHORITY.
+ - use Object::AUTHORITY.
+
 0.003  2011-11-08
 
  - (Packaging) Note dependency on Sub::Name.
