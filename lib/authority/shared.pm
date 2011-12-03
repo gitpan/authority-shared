@@ -6,7 +6,7 @@ use Object::AUTHORITY 0 qw();
 
 BEGIN {
 	$authority::shared::AUTHORITY = 'cpan:TOBYINK';
-	$authority::shared::VERSION   = '0.004';
+	$authority::shared::VERSION   = '0.005';
 }
 
 use Carp qw(croak);

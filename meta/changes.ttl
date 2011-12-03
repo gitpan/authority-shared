@@ -48,3 +48,14 @@ dist:v_0-004
 		dcs:item   [ rdfs:label "Don't use UNIVERSAL::AUTHORITY."@en ] ;
 		dcs:item   [ rdfs:label "use Object::AUTHORITY."@en ] ;
 		] .
+
+dist:project :release dist:v_0-005 .
+dist:v_0-005
+	a               :Version ;
+	dc:issued       "2011-12-03"^^xsd:date ;
+	:revision       "0.005"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/authority-shared-0.005.tar.gz> ;
+	dcs:changeset [
+		dcs:versus dist:v_0-004 ;
+		dcs:item   [ rdfs:label "Upgrade Module::Package::RDF."@en ; a dcs:Packaging , dcs:Bugfix ] 
+		] .
