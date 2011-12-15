@@ -6,21 +6,24 @@ use Object::AUTHORITY 0 qw();
 
 BEGIN {
 	$authority::shared::AUTHORITY = 'cpan:TOBYINK';
-	$authority::shared::VERSION   = '0.005';
+	$authority::shared::VERSION   = '0.006';
 }
 
+use base qw/Object::Role/;
 use Carp qw(croak);
 use Scalar::Util qw(blessed);
-use Sub::Name qw(subname); # protects against namespace::autoclean.
 
 sub import
 {
-	shift if $_[0] eq __PACKAGE__;
-	my ($caller) = caller;
+	my ($class,  @args) = @_;
+	my ($caller, %args) = $class->parse_arguments(-authority => @args);
 	
-	no strict 'refs';
-	push @{"$caller\::AUTHORITIES"}, @_;
-	*{"$caller\::AUTHORITY"} = subname("$caller\::AUTHORITY", \&AUTHORITY);
+	{
+		no strict 'refs';
+		push @{"$caller\::AUTHORITIES"}, @{ $args{-authority} };
+	}
+	
+	$class->install_method(AUTHORITY => \&AUTHORITY, $caller);
 }
 
 sub AUTHORITY
